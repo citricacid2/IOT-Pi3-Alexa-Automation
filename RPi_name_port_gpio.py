@@ -30,9 +30,15 @@ class device_handler(debounce_handler):
         # GPIO.setup(int(7), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
         # GPIO.output(int(7), state) ## State is true/false
         if name=="kitchen":
-            GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
-            GPIO.setup(int(7), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
-            GPIO.output(int(7), state) ## State is true/false
+            os.system("curl -d '' http://192.168.86.34:8060/keypress/home")
+            sleep(1)
+            os.system("curl -d '' http://192.168.86.34:8060/keypress/home")
+            sleep(1)
+            os.system("curl -d '' http://192.168.86.34:8060/keypress/right")
+            sleep(1)
+            os.system("curl -d '' http://192.168.86.34:8060/keypress/up")
+            sleep(1)
+            os.system("curl -d '' http://192.168.86.34:8060/keypress/select")
         elif name =="living room":
             GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
             GPIO.setup(int(11), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
